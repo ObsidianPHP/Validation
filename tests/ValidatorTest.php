@@ -6,7 +6,7 @@
  * Website: https://charuru.moe
  * License: https://github.com/CharlotteDunois/Validator/blob/master/LICENSE
  * @noinspection PhpUnhandledExceptionInspection
-**/
+ */
 
 namespace Obsidian\Validation\Tests;
 
@@ -36,9 +36,8 @@ final class ValidatorTest extends TestCase {
             }
         });
         
-        $arrname = explode(\DIRECTORY_SEPARATOR, get_class($class));
-        $arrname = explode('\\', array_pop($arrname));
-        $name = \str_replace(array('rule', ':'), '', \strtolower(array_pop($arrname)));
+        $arrname = \explode('\\', \get_class($class));
+        $name = \str_replace(array('rule', ':'), '', \strtolower(\array_pop($arrname)));
         
         Validator::addRule($class);
         

@@ -72,9 +72,7 @@ class Validator {
             static::initRules();
         }
         
-        $class = \get_class($rule);
-        $arrname = \explode(\DIRECTORY_SEPARATOR, $class);
-        $arrname = \explode('\\', array_pop($arrname));
+        $arrname = \explode('\\', \get_class($rule));
         $name = \array_pop($arrname);
         
         $rname = \str_replace(array('rule', ':'), '', \strtolower($name));
