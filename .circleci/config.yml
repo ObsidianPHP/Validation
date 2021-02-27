@@ -1,0 +1,66 @@
+version: 2.1
+
+job-template: &job-template
+  steps:
+    - checkout
+
+    # Download and cache dependencies
+    - restore_cache:
+        keys:
+          - dependencies-
+
+    - run: composer install --no-interaction
+    #- run: composer require --dev pcov/clobber && vendor/bin/pcov clobber
+
+    - save_cache:
+        key: dependencies-{{ checksum "composer.json" }}
+        paths:
+          - /home/circleci/.composer/cache/files
+
+    - run: php -v
+    - run: mkdir test-results
+    - run: vendor/bin/phpunit --configuration phpunit.xml.dist --log-junit test-results/junit-report.xml --coverage-text
+    - store_test_results:
+        path: test-results
+
+jobs:
+  php-72:
+    docker:
+      - image: circleci/php:7.2
+    <<: *job-template
+
+  php-72-zts:
+    docker:
+      - image: circleci/php:7.2-zts
+    <<: *job-template
+
+  php-73:
+    docker:
+      - image: circleci/php:7.3
+    <<: *job-template
+
+  php-73-zts:
+    docker:
+      - image: circleci/php:7.3-zts
+    <<: *job-template
+
+  php-74:
+    docker:
+      - image: circleci/php:7.4
+    <<: *job-template
+
+  php-74-zts:
+    docker:
+      - image: circleci/php:7.4-zts
+    <<: *job-template
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - php-72
+      - php-72-zts
+      - php-73
+      - php-73-zts
+      - php-74
+      - php-74-zts

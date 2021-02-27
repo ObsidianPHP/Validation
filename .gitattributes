@@ -1,0 +1,9 @@
+# convert CRLF to LF
+* text=auto eol=lf
+
+# mark dirs as linguist vendored
+.idea/* linguist-vendored
+tests/0-files/* linguist-vendored
+
+# export ignore
+/tests export-ignore
