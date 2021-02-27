@@ -12,7 +12,7 @@ composer require obsidian/validation
 # Example
 
 ```php
-use Obisidian\Validation\Validator;
+use Obsidian\Validation\Validator;
 
 $nofail = Validator::make(
     array(
