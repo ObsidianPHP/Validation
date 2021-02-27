@@ -73,7 +73,7 @@ class Validator {
         }
         
         $class = \get_class($rule);
-        $arrname = \explode('\\', $class);
+        $arrname = \explode(\DIRECTORY_SEPARATOR, $class);
         $name = \array_pop($arrname);
         
         $rname = \str_replace('rule', '', \strtolower($name));
