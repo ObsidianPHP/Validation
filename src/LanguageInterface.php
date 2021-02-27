@@ -3,8 +3,8 @@
  * Validation
  * Copyright 2020-2021 ObsidianPHP, All Rights Reserved
  *
- * Website: https://github.com/ObsidianPHP/Validation
- * License: https://github.com/ObsidianPHP/Validation/blob/master/LICENSE
+ * Website: https://github.com/ObsidianPHP/validation
+ * License: https://github.com/ObsidianPHP/validation/blob/master/LICENSE
  */
 
 namespace Obsidian\Validation;
