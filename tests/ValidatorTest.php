@@ -37,7 +37,8 @@ final class ValidatorTest extends TestCase {
         });
         
         $arrname = explode(\DIRECTORY_SEPARATOR, get_class($class));
-        $name = \strtolower(array_pop($arrname));
+        $arr2name = explode('\\', array_pop($arrname));
+        $name = \strtolower(array_pop($arr2name));
         
         Validator::addRule($class);
         
