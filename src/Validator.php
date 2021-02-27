@@ -77,8 +77,7 @@ class Validator {
         $arrname = \explode('\\', array_pop($arrname));
         $name = \array_pop($arrname);
         
-        $rname = \str_replace('rule', '', \strtolower($name));
-        var_dump(get_class($rule), $rname);
+        $rname = \str_replace(array('rule', ':'), '', \strtolower($name));
         static::$rulesets[$rname] = $rule;
         
         if(\stripos($name, 'rule') !== false) {
