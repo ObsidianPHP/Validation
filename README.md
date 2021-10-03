@@ -14,15 +14,22 @@ composer require obsidian/validation
 ```php
 use Obsidian\Validation\Validator;
 
-$nofail = Validator::make(
+$validator = Validator::make(
     array(
         'username' => 'string|required|min:5|max:75',
         'email' => 'email'
     )
 );
 
-var_dump($nofail->validate(array(
+// does not fail
+var_dump($validator->validate(array(
     'username' => 'git',
     'email' => 'noreply@github.com'
 ))); // bool(true)
+
+// fails
+$validator->validate(array(
+    'username' => 5,
+    'email' => 'noreply@github.com'
+)); // throws InvalidArgumentException
 ```
