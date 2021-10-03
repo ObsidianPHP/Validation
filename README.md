@@ -1,4 +1,4 @@
-# Validation [![CircleCI](https://circleci.com/gh/ObsidianPHP/Validation.svg?style=svg)](https://circleci.com/gh/ObsidianPHP/Validation)
+# Validation [![CI status](https://github.com/ObsidianPHP/Validation/workflows/CI/badge.svg)](https://github.com/ObsidianPHP/Validation/actions)
 
 Validates input against string rulesets.
 
