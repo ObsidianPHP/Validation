@@ -358,7 +358,7 @@ final class ValidatorTest extends TestCase {
             array('test' => 'callback:=void')
         );
         
-        $this->assertTrue($validator2->validate(array('test' => array(self::class, 'testCallback')), \LogicException::class));
+        $this->assertTrue($validator2->validate(array('test' => array($this, 'testCallback')), \LogicException::class));
     }
     
     function testCallbackWildcard(): void {
