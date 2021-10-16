@@ -23,7 +23,7 @@ $validator = Validator::make(
 
 // does not fail
 var_dump($validator->validate(array(
-    'username' => 'git',
+    'username' => 'github',
     'email' => 'noreply@github.com'
 ))); // bool(true)
 
